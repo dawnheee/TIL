@@ -10,6 +10,7 @@
 
 REST는 “Representational State Transfer”의 약자로, HTTP를 기반으로 클라이언트가 서버의 리소스에 접근하는 방식을 규정하는 아키텍쳐.
 웹에서 사용되는 데이터나 자원(Resource)을 HTTP URI로 표현하고, HTTP 프로토콜을 통해 요청과 응답을 정의하는 방식을 말한다.
+`객체화된 서비스...`
 
 ### **REST API**
 
@@ -58,5 +59,5 @@ GET, PUT, DELETE는 멱등성이 보장된다.
 
 ```
 HATEOAS(Hypertext As The Engine Of Application State)라는 약어로 표현되는 하이퍼미디어 컨트롤을 적용
-3단계의 요청은 2단계와 동일하지만, 응답에는 리소스의 URI를 포함한 링크 요소를 삽입하여 작성하여 새로운 기능에 접근할 수 있도록함
+3단계의 요청은 2단계와 동일하지만, `응답에는 리소스의 URI를 포함한 링크 요소를 삽입하여 작성하여 새로운 기능에 접근할 수 있도록함
 ```
