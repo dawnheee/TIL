@@ -37,6 +37,8 @@ const sH: any[];
 sH = ['student', 45];
 ```
 
+---
+
 ## Tuple
 
 요소의 개수가 정해져 있는 배열. JS에는 없는 타입이다. 미리 정한 길이를 충족시켜야 하지만 push 메서드를 통해 요소를 추가해도 error가 발생하지 않는다. 배열의 길이, 각 요소의 타입을 미리 지정할 수 있는 상황에서는 튜플을 사용하는 것이 좋다.
@@ -50,14 +52,16 @@ const person = {
 };
 ```
 
+---
+
 ## Enum
 
 숫자와 문자열 기반 열거형. 의도를 문서화하거나 구분되는 사례 집합을 만들 수 있다.
 값에 미리 이름을 정의하고 열거해서 사용하는 방식.
 
-### Enum을 사용하는 이유
+### **Enum을 사용하는 이유**
 
-### 카테고리 별로 값을 명확하게, 효율적으로 나누기 위해
+**_카테고리 별로 값을 명확하게, 효율적으로 나누기 위해_**
 
 속성에 할당된 숫자(/문자열) 값을 기억하지 않아도 숫자에 할당된 속성으로 값을 비교, 분류할 수 있다. 리덕스의 액션 타입을 정의할 수도 있다.
 
@@ -66,9 +70,13 @@ const person = {
 - js 객체는 선언, 할당 후 수정할 수 있지만 enum은 수정이 불가하다.
 - enum은 속성 값으로 숫자, 문자열만 할당할 수 있다.
 
-### Any
+---
+
+## Any
 
 any타입을 사용하면 컴파일러가 타입을 확인하지 않음.
+
+---
 
 ## union
 
@@ -78,7 +86,15 @@ any타입을 사용하면 컴파일러가 타입을 확인하지 않음.
 input: number | string
 ```
 
-### Literal
+```
+type User = { name: string } | string;
+let u1: User = {name: 'Max'};
+u1 = 'Michael'; // 컴파일에러가 발생하지 않는다
+```
+
+---
+
+## Literal
 
 특정 문자열을 타입으로 지정할 수 있다. 아래의 경우 name에 미리 정한 두 가지 값 이외의 다른 것을 전달하면 오류가 발생한다.
 
@@ -87,3 +103,5 @@ function sh(age: number, name: 'seohee' | 'sherlock'){
     console.log(`My name is ${name}. I am ${age}.`)
 }
 ```
+
+https://www.udemy.com/share/105tjT3@HxNf89cScDai2QFWa8bR-hEi7kXaiu5X7yhOxi5ZVjYm1_nvaD-O-F7X1SJlVkFwPg==/
