@@ -3,6 +3,31 @@
 pages 폴더 안에 파일을 저장하면 파일명을 url로 경로가 설정된다. component명은 상관 없으나, 꼭 `export default` 해야함.
 index 파일은 `/` route 경로.
 
+## 페이지 만들기
+
+CRA는 react-router-dom으로 분기를 나누지만 Next.js에서는 pages 폴더에 폴더, 파일을 만들어 나눈다.
+
+```
+/movies
+pages > movies > index.js
+
+/movies/all
+pages > movies > all.js
+```
+
+## Path parameter를 사용한 동적 라우팅
+
+주소에 포함되는 변수명과 일치하는 파일을 만들어 사용한다.
+
+```
+/movies/:id
+movies > [id].js
+```
+
+useRouter로 query를 찍어보면 변수로 지정한 파일명(위 예시의 경우 id)라는 이름의 property가 찍힌다.
+
+[useRouter](https://nextjs.org/docs/api-reference/next/router)
+
 ## 404 page
 
 자동으로 생성됨
@@ -24,7 +49,13 @@ useState로 counter 상태를 만들었다. 초기값은 0이고 버튼을 누�
 
 ## Hydration
 
-react.js를 프론트엔드 안에서 실행함
+**Server side에서 만든 정적 페이지(HTML)와 chunk 단위의 js를 클라이언트에 보내준 후, 클라이언트에서 HTML 코드와 JS코드를 매칭시키는 과정**
+
+- 장점: 로딩이 빠름
+- 단점:
+
+HTML을 미리 렌더링하고, 그 뒤에 번들링된 JS로 작동.
+react.js를 프론트엔드 안에서 실행함.
 
 **🌟 Next.js**
 
