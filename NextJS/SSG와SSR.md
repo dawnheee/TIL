@@ -2,7 +2,7 @@
 
 next.js는 서버에서 pre-rendering. 이후 페이지 생성 방법에 따라 SSR, SSG로 나뉨
 
-- 동적으로 페이지 생성: SSR(Setver Side Rendering)
+- 동적으로 페이지 생성: SSR(Server Side Rendering)
 - 정적으로 페이지 생성: SSG(Static Site Generation)
   </br>
 
@@ -16,7 +16,16 @@ next.js는 서버에서 pre-rendering. 이후 페이지 생성 방법에 따라 
 
 </br>
 
-### getStaticProps
+## getStaticProps
 
-클라이언트가 아닌 서버에서만 실행되는 함수로, 빌드 시 한 번만 호출 된다.
+SSG 방식에서 사용
+</br>
+클라이언트가 아닌 서버에서만 실행되는 함수로, 빌드 시 한 번만 호출 된다. 빌드 프로세스 중에만 실행되어 클라이언트와 상관 없다.
 특정 데이터와 SSG를 해야하는 경우에 getStaticProps 함수를 비동기로 정의하여 사용할 수 있음.
+pages 컴포넌트 파일에서만 쓸 수 있다.
+컴포넌트 함수 호출 전에 이 함수 먼저 호출된다. 컴포넌트에서 사용하는 props를 준비하는 역할을 한다. 필요한 데이터가 포함된 상태에서 컴포넌트를 렌더링할 수 있다.
+항상 props 키를 가지고 있는 객체를 반환해야 한다. 이 props를 컴포넌트에서 사용하는 것.
+
+### revalidate
+
+증분 정적 생성 기능. getStaticProps으로부터 반환되는 객체에 추가하여 사용하는 property. 새로운 데이터를 받아와야 하는 경우, 설정한 주기에 따라 업데이트 한다. `revalidate: 3600`이면 1시간에 한 번씩 regenerate 한다.다
