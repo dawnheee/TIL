@@ -28,4 +28,23 @@ pages 컴포넌트 파일에서만 쓸 수 있다.
 
 ### revalidate
 
-증분 정적 생성 기능. getStaticProps으로부터 반환되는 객체에 추가하여 사용하는 property. 새로운 데이터를 받아와야 하는 경우, 설정한 주기에 따라 업데이트 한다. `revalidate: 3600`이면 1시간에 한 번씩 regenerate 한다.다
+증분 정적 생성 기능. getStaticProps으로부터 반환되는 객체에 추가하여 사용하는 property. 새로운 데이터를 받아와야 하는 경우, 설정한 주기에 따라 업데이트 한다. `revalidate: 3600`이면 1시간에 한 번씩 regenerate 한다.
+
+## getStaticPath
+
+getStatisProps 를 사용할 때 필요한 함수.모든 동적 세그먼트 값을 객체로 변환함. fallback, path 등의 키 값을 갖는다.
+
+`getStaticPath가 필요한 이유`
+getStaticProps를 사용하면 빌드 시 페이지가 사전 생성된다. 방문 시 생성되는 것이 아니라, 빌드 될 때 생성되기 때문에 id 값을 주소로 사용한다면 모든 id 값의 페이지를 사전생성한다. getStaticPath는 어떤 동적 매개변수에 대해 페이지를 사전 생성하는지 알려주는 역할.
+
+### fallback
+
+특정 params 키 값에 대해 일부 페이지만 사전생성함. 사용자의 방문이 잦은 페이지는 사전생성, 그렇지 않은 페이지는 요청되었을 때 동적으로 사전생성할 수 있다.
+
+- true: 입력 요청에 따라 nextJS가 동적으로 해당 params에 대한 페이지를 서버에 사전생성함
+- false: 지원되는 모든 path를 미리 정의했을 때(하드코딩)(정의되지 않은 페이지 -> 404)
+
+## context
+
+getStaticProps, getServerSidProps의 매개변수로 사용할 수 있다.
+!! 잘모르겠음 !!
